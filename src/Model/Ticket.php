@@ -11,7 +11,7 @@
 
 namespace CS\HelpDeskBundle\Model;
 
-class Ticket
+abstract class Ticket
 {
     /**
      * @var int

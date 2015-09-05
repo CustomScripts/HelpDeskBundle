@@ -1,4 +1,4 @@
-CS\HelpDeskBundle\Model\Ticket:
+CS\HelpDeskBundle\Entity\Ticket:
     type: entity
     table: cshd_tickets
     indexes:
@@ -14,7 +14,7 @@ CS\HelpDeskBundle\Model\Ticket:
             type: string
             length: 125
         description:
-            type: string
+            type: text
             nullable: true
         status:
             type: string
