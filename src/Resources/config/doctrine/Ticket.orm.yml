@@ -1,0 +1,21 @@
+CS\HelpDeskBundle\Model\Ticket:
+    type: entity
+    table: cshd_tickets
+    indexes:
+        title_index:
+          columns: [title]
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 125
+        description:
+            type: string
+            nullable: true
+        status:
+            type: string
+            length: 25
