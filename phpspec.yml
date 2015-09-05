@@ -1,0 +1,5 @@
+suites:
+    default:
+        namespace: CS\HelpDeskBundle
+        psr4_prefix: CS\HelpDeskBundle
+formatter.name: pretty
