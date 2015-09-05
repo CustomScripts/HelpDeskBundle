@@ -34,7 +34,7 @@ class TicketType extends AbstractType
             ]
         );
 
-        $builder->add('description');
+        $builder->add('description', 'textarea');
     }
 
     /**

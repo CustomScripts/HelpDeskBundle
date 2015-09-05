@@ -24,7 +24,7 @@ class TicketTypeSpec extends ObjectBehavior
             ->shouldBeCalled();
 
         $builder
-            ->add('description')
+            ->add('description', 'textarea')
             ->shouldBeCalled();
 
         $this->buildForm($builder, []);
