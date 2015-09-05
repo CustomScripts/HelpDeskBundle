@@ -26,7 +26,7 @@ class TicketTypeSpec extends ObjectBehavior
 
         $this->buildForm($builder, []);
     }
-g
+
     function it_configures_the_form(OptionsResolver $optionsResolver)
     {
         $optionsResolver
