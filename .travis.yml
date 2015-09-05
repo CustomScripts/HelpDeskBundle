@@ -22,7 +22,7 @@ cache:
   directories:
     - $HOME/.composer/cache/files
 
-before_script:
+before_install:
   - composer self-update
 
 install:
