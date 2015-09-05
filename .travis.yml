@@ -14,6 +14,10 @@ matrix:
     - php: 7
   fast_finish: true
 
+env:
+    global:
+        - deps=high
+
 cache:
   directories:
     - $HOME/.composer/cache/files
