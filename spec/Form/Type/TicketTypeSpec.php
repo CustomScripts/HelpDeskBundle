@@ -6,6 +6,8 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class TicketTypeSpec extends ObjectBehavior
 {
@@ -18,7 +20,7 @@ class TicketTypeSpec extends ObjectBehavior
     function it_builds_the_form(FormBuilderInterface $builder)
     {
         $builder
-            ->add('title')
+            ->add('title', null, ['constraints' => [new NotBlank(), new Length(['max' => '125'])]])
             ->shouldBeCalled();
 
         $builder
@@ -32,7 +34,7 @@ class TicketTypeSpec extends ObjectBehavior
     {
         $optionsResolver
             ->setDefaults([
-                'entity_class' => 'CS\HelpDeskBundle\Model\Ticket',
+                'data_class' => 'CS\HelpDeskBundle\Model\Ticket',
             ])
             ->shouldBeCalled();
 
