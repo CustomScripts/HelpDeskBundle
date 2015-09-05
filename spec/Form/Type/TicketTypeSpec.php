@@ -12,6 +12,7 @@ class TicketTypeSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('CS\HelpDeskBundle\Form\Type\TicketType');
+        $this->shouldImplement('Symfony\Component\Form\FormTypeInterface');
     }
 
     function it_builds_the_form(FormBuilderInterface $builder)
