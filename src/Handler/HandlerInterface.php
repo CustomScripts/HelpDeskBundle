@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 interface HandlerInterface
 {
     /**
-     * This function creates a new form and handles the request, validation and saving of entities for the form
+     * This function creates a new form and handles the request, validation and saving of entities for the form.
      *
      * @param Request|null $request
      * @param mixed        $entity

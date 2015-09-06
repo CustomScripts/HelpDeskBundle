@@ -99,5 +99,5 @@ abstract class Ticket
         $this->status = $status;
 
         return $this;
-}
+    }
 }

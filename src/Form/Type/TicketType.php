@@ -29,8 +29,8 @@ class TicketType extends AbstractType
             [
                 'constraints' => [
                     new Assert\NotBlank(),
-                    new Assert\Length(['max' => '125'])
-                ]
+                    new Assert\Length(['max' => '125']),
+                ],
             ]
         );
 
@@ -43,7 +43,7 @@ class TicketType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'CS\HelpDeskBundle\Model\Ticket'
+            'data_class' => 'CS\HelpDeskBundle\Model\Ticket',
         ]);
     }
 
