@@ -48,7 +48,7 @@ class TicketManagerSpec extends ObjectBehavior
         $tickets = [$ticket];
 
         $doctrine->getRepository('CSHelpDeskBundle:Ticket')->shouldBeCalled()->willReturn($repository);
-        $repository->findAll()->shouldBeCalled()->willReturn($tickets);
+        $repository->findBy([], ['status' => 'DESC'], null, null)->shouldBeCalled()->willReturn($tickets);
 
         $this->findAll()->shouldReturn($tickets);
     }

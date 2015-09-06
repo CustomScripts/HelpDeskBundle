@@ -52,13 +52,17 @@ class TicketManager
     }
 
     /**
+     * @param array $orderBy
+     * @param int   $limit
+     * @param int   $offset
+     *
      * @return array
      */
-    public function findAll()
+    public function findAll(array $orderBy = ['status' => 'DESC'], $limit = null, $offset = null)
     {
         /** @var TicketRepository $repository */
         $repository = $this->doctrine->getRepository('CSHelpDeskBundle:Ticket');
 
-        return $repository->findAll();
+        return $repository->findBy([], $orderBy, $limit, $offset);
     }
 }
