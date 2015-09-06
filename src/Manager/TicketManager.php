@@ -11,9 +11,11 @@
 
 namespace CS\HelpDeskBundle\Manager;
 
+use CS\HelpDeskBundle\Event\TicketEvent;
 use CS\HelpDeskBundle\Model\Ticket;
 use CS\HelpDeskBundle\Repository\TicketRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class TicketManager
 {
@@ -23,13 +25,20 @@ class TicketManager
     private $doctrine;
 
     /**
+     * @var EventDispatcherInterface
+     */
+    private $dispatcher;
+
+    /**
      * TicketManager constructor.
      *
-     * @param ObjectManager $doctrine
+     * @param ObjectManager            $doctrine
+     * @param EventDispatcherInterface $dispatcher
      */
-    public function __construct(ObjectManager $doctrine)
+    public function __construct(ObjectManager $doctrine, EventDispatcherInterface $dispatcher)
     {
         $this->doctrine = $doctrine;
+        $this->dispatcher = $dispatcher;
     }
 
     /**
@@ -42,11 +51,24 @@ class TicketManager
         /** @var TicketRepository $repository */
         $repository = $this->doctrine->getRepository('CSHelpDeskBundle:Ticket');
 
+        $eventType = 'update';
+
         if (!$ticket->getId()) {
             $ticket->setStatus('open');
+            $eventType = 'create';
         }
 
+        $this->dispatcher->dispatch(
+            constant(sprintf('CS\HelpDeskBundle\Event\TicketEvent::PRE_%s', strtoupper($eventType))),
+            new TicketEvent($ticket)
+        );
+
         $repository->save($ticket);
+
+        $this->dispatcher->dispatch(
+            constant(sprintf('CS\HelpDeskBundle\Event\TicketEvent::POST_%s', strtoupper($eventType))),
+            new TicketEvent($ticket)
+        );
 
         return true;
     }

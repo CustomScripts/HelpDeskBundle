@@ -10,7 +10,7 @@
 services:
     helpdesk.manager.ticket_manager:
         class: CS\HelpDeskBundle\Manager\TicketManager
-        arguments: [@doctrine.orm.entity_manager]
+        arguments: [@doctrine.orm.entity_manager, @event_dispatcher]
 
     helpdesk.handler.ticket_handler:
         class: CS\HelpDeskBundle\Handler\TicketHandler
