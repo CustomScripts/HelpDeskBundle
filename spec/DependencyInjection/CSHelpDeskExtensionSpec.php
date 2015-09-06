@@ -12,9 +12,6 @@
 namespace spec\CS\HelpDeskBundle\DependencyInjection;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class CSHelpDeskExtensionSpec extends ObjectBehavior
 {

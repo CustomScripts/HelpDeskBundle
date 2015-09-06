@@ -15,7 +15,6 @@ use CS\HelpDeskBundle\Entity\Ticket;
 use CS\HelpDeskBundle\Form\Type\TicketType;
 use CS\HelpDeskBundle\Manager\TicketManager;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 

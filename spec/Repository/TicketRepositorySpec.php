@@ -13,9 +13,8 @@ namespace spec\CS\HelpDeskBundle\Repository;
 
 use CS\HelpDeskBundle\Entity\Ticket;
 use Doctrine\ORM\EntityManager;
-use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Doctrine\ORM\Mapping\ClassMetadata;
+use PhpSpec\ObjectBehavior;
 
 class TicketRepositorySpec extends ObjectBehavior
 {

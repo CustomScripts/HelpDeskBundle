@@ -15,7 +15,6 @@ use CS\HelpDeskBundle\Model\Ticket;
 use CS\HelpDeskBundle\Repository\TicketRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class TicketManagerSpec extends ObjectBehavior
 {
