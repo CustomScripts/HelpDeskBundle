@@ -10,4 +10,5 @@
 helpdesk:
     ticket:
         create:
+            button: Create Ticket
             success: Ticket created successfully

@@ -7,6 +7,9 @@
  # with this source code in the file LICENSE.
  #}
 
+<a href="{{ path('helpdesk_ticket_create') }}">
+  {{ 'helpdesk.ticket.create.button'|trans({}, 'CSHelpDesk') }}
+</a>
 {% for ticket in tickets %}
   <div>
     <h3>{{ ticket.title }}</h3>

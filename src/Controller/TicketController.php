@@ -37,6 +37,14 @@ class TicketController extends Controller
     {
         $form = $this->get('helpdesk.handler.ticket_handler')->handle($request, new Ticket());
 
+        if ($form->isValid()) {
+            $translator = $this->get('translator');
+            $this->get('session')->getFlashBag()->add(
+                'success',
+                $translator->trans('helpdesk.ticket.create.success', [], 'CSHelpDesk')
+            );
+        }
+
         return $this->render('CSHelpDeskBundle:Ticket:create.html.twig', ['form' => $form->createView()]);
     }
 }
