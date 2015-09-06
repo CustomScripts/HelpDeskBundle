@@ -50,4 +50,15 @@ class TicketManager
 
         return true;
     }
+
+    /**
+     * @return array
+     */
+    public function findAll()
+    {
+        /** @var TicketRepository $repository */
+        $repository = $this->doctrine->getRepository('CSHelpDeskBundle:Ticket');
+
+        return $repository->findAll();
+    }
 }

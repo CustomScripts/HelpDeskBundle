@@ -36,6 +36,20 @@ class TicketManagerSpec extends ObjectBehavior
         $repository->save($ticket)->shouldBeCalled();
 
         $this->save($ticket)->shouldReturn(true);
+    }
 
+    function it_returns_all_tickets(TicketRepository $repository, $doctrine)
+    {
+        $ticket = new \CS\HelpDeskBundle\Entity\Ticket();
+        $ticket->setTitle('Ticket Title');
+        $ticket->setDescription('Ticket Description');
+        $ticket->setStatus('open');
+
+        $tickets = [$ticket];
+
+        $doctrine->getRepository('CSHelpDeskBundle:Ticket')->shouldBeCalled()->willReturn($repository);
+        $repository->findAll()->shouldBeCalled()->willReturn($tickets);
+
+        $this->findAll()->shouldReturn($tickets);
     }
 }

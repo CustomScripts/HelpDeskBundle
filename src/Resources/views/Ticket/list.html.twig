@@ -1,16 +1,20 @@
-##
+{#
  # This file is part of CustomScripts HelpDesk project.
  #
  # (c) 2015 Pierre du Plessis <info@customscripts.co.za>
  #
  # This source file is subject to the MIT license that is bundled
  # with this source code in the file LICENSE.
- ##
+ #}
 
-helpdesk_tickets_list:
-    path: /tickets
-    defaults: {_controller: CSHelpDeskBundle:Ticket:list}
-
-helpdesk_ticket_create:
-    path: /ticket/create
-    defaults: {_controller: CSHelpDeskBundle:Ticket:create}
+{% for ticket in tickets %}
+  <div>
+    <h3>{{ ticket.title }}</h3>
+    <p>
+      {{ ticket.description }}
+      <p>
+        <small>{{ ticket.status }}</small>
+      </p>
+    </p>
+  </div>
+{% endfor %}

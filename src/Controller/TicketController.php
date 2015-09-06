@@ -19,6 +19,16 @@ use Symfony\Component\HttpFoundation\Response;
 class TicketController extends Controller
 {
     /**
+     * @return Response
+     */
+    public function listAction()
+    {
+        $tickets = $this->get('helpdesk.manager.ticket_manager')->findAll();
+
+        return $this->render('CSHelpDeskBundle:Ticket:list.html.twig', ['tickets' => $tickets]);
+    }
+
+    /**
      * @param Request $request
      *
      * @return Response
