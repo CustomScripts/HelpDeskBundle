@@ -12,7 +12,7 @@
 namespace spec\CS\HelpDeskBundle\Handler;
 
 use CS\HelpDeskBundle\Entity\Ticket;
-use CS\HelpDeskBundle\Form\Type\TicketType;
+use CS\HelpDeskBundle\Form\Type\TicketCreateType;
 use CS\HelpDeskBundle\Manager\TicketManager;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -28,14 +28,14 @@ class TicketHandlerSpec extends ObjectBehavior
 
     function let(FormFactoryInterface $factory, TicketManager $manager)
     {
-        $factory->create(new TicketType())->willReturn('Symfony\Component\Form\FormInterface');
+        $factory->create(new TicketCreateType())->willReturn('Symfony\Component\Form\FormInterface');
 
         $this->beConstructedWith($factory, $manager);
     }
 
     function it_creates_a_new_form(FormInterface $form, $factory)
     {
-        $factory->create(new TicketType(), null)->willReturn($form);
+        $factory->create(new TicketCreateType(), null)->willReturn($form);
 
         $form->handleRequest(null)->shouldBeCalled();
         $form->isValid()->shouldBeCalled();
@@ -47,7 +47,7 @@ class TicketHandlerSpec extends ObjectBehavior
     {
         $entity = new Ticket();
 
-        $factory->create(new TicketType(), $entity)->willReturn($form);
+        $factory->create(new TicketCreateType(), $entity)->willReturn($form);
 
         $form->handleRequest(null)->shouldBeCalled();
         $form->isValid()->shouldBeCalled();
@@ -59,7 +59,7 @@ class TicketHandlerSpec extends ObjectBehavior
     {
         $entity = new Ticket();
 
-        $factory->create(new TicketType(), $entity)->willReturn($form);
+        $factory->create(new TicketCreateType(), $entity)->willReturn($form);
 
         $form->handleRequest(null)->shouldBeCalled();
         $form->isValid()->shouldBeCalled()->willReturn(true);

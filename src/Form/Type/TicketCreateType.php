@@ -16,7 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class TicketType extends AbstractType
+class TicketCreateType extends AbstractType
 {
     /**
      * {@inheritdoc}

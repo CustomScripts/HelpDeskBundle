@@ -11,7 +11,7 @@
 
 namespace CS\HelpDeskBundle\Handler;
 
-use CS\HelpDeskBundle\Form\Type\TicketType;
+use CS\HelpDeskBundle\Form\Type\TicketCreateType;
 use CS\HelpDeskBundle\Manager\TicketManager;
 use CS\HelpDeskBundle\Model\Ticket;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -49,7 +49,7 @@ class TicketHandler implements HandlerInterface
      */
     public function handle(Request $request = null, $ticket = null)
     {
-        $form = $this->formFactory->create(new TicketType(), $ticket);
+        $form = $this->formFactory->create(new TicketCreateType(), $ticket);
 
         $form->handleRequest($request);
 
