@@ -21,7 +21,10 @@
         "php" : ">=5.4.0",
         "symfony/framework-bundle": "~2.3",
         "symfony/form": "~2.3",
-        "symfony/validator": "~2.3"
+        "symfony/validator": "~2.3",
+        "doctrine/doctrine-bundle": "~1.2",
+        "symfony/twig-bundle": "~2.3",
+        "doctrine/orm": "~2.2"
     },
     "autoload" : {
         "psr-4" : {

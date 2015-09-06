@@ -1,0 +1,17 @@
+##
+ # This file is part of CustomScripts HelpDesk project.
+ #
+ # (c) 2015 Pierre du Plessis <info@customscripts.co.za>
+ #
+ # This source file is subject to the MIT license that is bundled
+ # with this source code in the file LICENSE.
+ ##
+
+services:
+    helpdesk.manager.ticket_manager:
+        class: CS\HelpDeskBundle\Manager\TicketManager
+        arguments: [@doctrine.orm.entity_manager]
+
+    helpdesk.handler.ticket_handler:
+        class: CS\HelpDeskBundle\Handler\TicketHandler
+        arguments: [@form.factory, @helpdesk.manager.ticket_manager]
